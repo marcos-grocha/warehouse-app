@@ -1,10 +1,10 @@
 class WarehousesController < ApplicationController
   def show
-    id = params[:id]
-    @warehouse = Warehouse.find(id)
+    @warehouse = Warehouse.find(params[:id])
   end
 
   def new
+    @warehouse = Warehouse.new
   end
 
   def create
@@ -15,9 +15,12 @@ class WarehousesController < ApplicationController
     w = Warehouse.new(warehouse_params)
 
     # 3 -- Salvar o galpão que foi criado
-    w.save()
-
-    # 4 -- Redirecionar para a tela inicial
-    redirect_to root_path, notice: "Galpão cadastrado com sucesso!"
+    if w.save()
+      # 4 -- Redirecionar para a tela inicial
+      redirect_to root_path, notice: "Galpão cadastrado com sucesso!"
+    else
+      flash.now[:notice] = "Galpão não cadastrado."
+      render "new"
+    end
   end
 end
