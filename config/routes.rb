@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   # Defines my roots
 
   root to: "home#index"
-  resources :warehouses, only: [ :show, :new, :create, :edit, :update ]
+  resources :warehouses, only: [ :show, :new, :create, :edit, :update, :destroy ]
 end
