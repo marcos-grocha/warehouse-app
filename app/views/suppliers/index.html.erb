@@ -1,0 +1,11 @@
+<% @suppliers.each do |s| %>
+    <%= s.corporate_name %>
+    <%= link_to s.brand_name, supplier_path(s) %>
+    <%= s.registration_number %>
+    <%= s.full_address %>
+    <%= s.city %> - <%= s.state %>
+    <%= s.email %>
+<% end %>
+<% if @suppliers.empty? %>
+    <p>Não existem fornecedores cadastrados.</p>
+<% end %>
