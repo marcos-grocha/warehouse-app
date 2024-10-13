@@ -9,12 +9,14 @@ class ProductModelsController < ApplicationController
   end
 
   def create
-    @product_model = ProductModel.new(pega_parametro)
+    @product_model = ProductModel.new(save_params)
 
     if @product_model.save()
       redirect_to @product_model, notice: "Modelo de produto cadastrado com sucesso"
     else
-      flash[:notice] = "não cadastrado"
+      @suppliers = Supplier.all
+      flash.now[:notice] = "Não foi possível cadastrar o modelo de produto."
+      render "new"
     end
   end
 
@@ -24,9 +26,7 @@ class ProductModelsController < ApplicationController
 
   private
 
-  def pega_parametro
-    product_model_params = params.require(:product_model).permit(
-      :name, :weight, :width, :height, :depth, :sku, :supplier_id
-    )
+  def save_params
+    params.require(:product_model).permit(:name, :weight, :width, :height, :depth, :sku, :supplier_id)
   end
 end
