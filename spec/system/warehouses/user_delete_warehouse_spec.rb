@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Usuário remove um galpão' do
   it 'com sucesso' do
-    w = Warehouse.create!(name: 'Cuiaba', code: 'CWB', area: 10000, cep: '56000-000', city: 'Cuiabá', description: 'Galpão do centro do país', address: 'Av dos Jacarés, 1000')
+    Warehouse.create!(name: 'Cuiaba', code: 'CWB', area: 10000, cep: '56000-000', city: 'Cuiabá', description: 'Galpão do centro do país', address: 'Av dos Jacarés, 1000')
 
     visit root_path
     click_on 'Cuiaba'
@@ -15,8 +15,8 @@ describe 'Usuário remove um galpão' do
   end
 
   it 'e não apaga outros galpões' do
-    w = Warehouse.create!(name: 'Cuiaba', code: 'CWB', area: 10000, cep: '56000-000', city: 'Cuiabá', description: 'Galpão do centro do país', address: 'Av dos Jacarés, 1000')
-    wb = Warehouse.create!(name: 'b', code: 'BBB', area: 20000, cep: '16000-000', city: 'bb', description: 'Galpão do bbb', address: 'Av dos Bs, 200')
+    Warehouse.create!(name: 'Cuiaba', code: 'CWB', area: 10000, cep: '56000-000', city: 'Cuiabá', description: 'Galpão do centro do país', address: 'Av dos Jacarés, 1000')
+    Warehouse.create!(name: 'b', code: 'BBB', area: 20000, cep: '16000-000', city: 'bb', description: 'Galpão do bbb', address: 'Av dos Bs, 200')
 
     visit root_path
     click_on 'Cuiaba'

@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Usuário cadastra um modelo de produto' do
   it 'com sucesso' do
     # Arrange
-    supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronicos LTDA', registration_number: '07317108000151', full_address: 'Av Nacoes Uniddas, 1000', city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
+    Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronicos LTDA', registration_number: '07317108000151', full_address: 'Av Nacoes Uniddas, 1000', city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
 
     # Act
     visit root_path
@@ -25,5 +25,21 @@ describe 'Usuário cadastra um modelo de produto' do
     expect(page).to have_content 'SKU: TV40-SAMS-XPTO'
     expect(page).to have_content 'Dimensão: 60cm x 90cm x 10cm'
     expect(page).to have_content 'Peso: 10000g'
+  end
+
+  it 'deve preencher todos os campos' do
+    # Arrange
+    Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronicos LTDA', registration_number: '07317108000151', full_address: 'Av Nacoes Uniddas, 1000', city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
+
+    # Act
+    visit root_path
+    click_on 'Modelos de Produtos'
+    click_on 'Cadastrar Novo'
+    fill_in 'Nome', with: ''
+    fill_in 'SKU', with: ''
+    click_on 'Enviar'
+
+    # Assert
+    expect(page).to have_content 'Não foi possível cadastrar o modelo de produto.'
   end
 end
