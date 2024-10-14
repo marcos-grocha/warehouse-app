@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :warehouses, only: [ :show, :new, :create, :edit, :update, :destroy ]
   resources :suppliers, only: [ :index, :show ]
   resources :product_models, only: [ :index, :show, :new, :create ]
+
+  devise_for :users
 end
