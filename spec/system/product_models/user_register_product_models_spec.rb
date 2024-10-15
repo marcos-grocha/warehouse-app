@@ -6,6 +6,7 @@ describe 'Usuário cadastra um modelo de produto' do
     Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronicos LTDA', registration_number: '07317108000151', full_address: 'Av Nacoes Uniddas, 1000', city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
 
     # Act
+    login_as(User.create!(name: 'Marcos', email: 'marcos@email.com', password: 'password'))
     visit root_path
     click_on 'Modelos de Produtos'
     click_on 'Cadastrar Novo'
@@ -32,6 +33,7 @@ describe 'Usuário cadastra um modelo de produto' do
     Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronicos LTDA', registration_number: '07317108000151', full_address: 'Av Nacoes Uniddas, 1000', city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br')
 
     # Act
+    login_as(User.create!(name: 'Marcos', email: 'marcos@email.com', password: 'password'))
     visit root_path
     click_on 'Modelos de Produtos'
     click_on 'Cadastrar Novo'
