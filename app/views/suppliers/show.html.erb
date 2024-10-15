@@ -1,8 +1,12 @@
-<%= @supplier.corporate_name %>
-Documento: <%= @supplier.registration_number %>
-Endereço: <%= @supplier.full_address %> - <%= @supplier.city %> - <%= @supplier.state %>
-Email: <%= @supplier.email %>
-
-<div>
-    <%= link_to('Voltar', root_path)%>
-</div>
+<br>
+<section class="spp2">
+    <h3><%= @supplier.corporate_name %></h3>
+    <div>
+        <strong>Documento:</strong> <%= @supplier.registration_number %> <br>
+        <strong>Endereço:</strong> <%= @supplier.full_address %> - <%= @supplier.city %> - <%= @supplier.state %> <br>
+        <strong>Email:</strong> <%= @supplier.email %> <br>
+    </div>
+    <div>
+        <%= link_to('Voltar', root_path)%>
+    </div>
+</section>

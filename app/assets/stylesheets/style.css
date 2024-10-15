@@ -1,7 +1,10 @@
 header {
     color: white;
     text-align: center;
-    background-color: darkblue;
+}
+
+header > h1 {
+    background-color: rgba(255, 255, 255, 0.65);
     border-radius: 40px;
     width: 400px;
     margin: auto;
@@ -32,6 +35,18 @@ section.medium {
 section.hight {
     width: 330px;
     text-align: center;
+}
+section.pm {
+    width: 320px;
+    text-align: right;
+}
+section.spp {
+    width: 356px;
+    text-align: right;
+}
+section.spp2 {
+    width: 370px;
+    text-align: left;
 }
 
 footer {

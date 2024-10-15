@@ -1,11 +1,21 @@
-<% @suppliers.each do |s| %>
-    <%= s.corporate_name %>
-    <%= link_to s.brand_name, supplier_path(s) %>
-    <%= s.registration_number %>
-    <%= s.full_address %>
-    <%= s.city %> - <%= s.state %>
-    <%= s.email %>
-<% end %>
-<% if @suppliers.empty? %>
-    <p>Não existem fornecedores cadastrados.</p>
-<% end %>
+<br>
+<section class="hight">
+    <%= link_to 'Cadastrar fornecedor', new_supplier_path %>
+    <br>
+    <div>
+        <% @suppliers.each do |s| %>
+            <h4><%= s.corporate_name %></h4>
+            <p><%= link_to s.brand_name, supplier_path(s) %></p>
+            <p><%= s.registration_number %></p>
+            <p><%= s.full_address %></p>
+            <p><%= s.city %> - <%= s.state %></p>
+            <p><%= s.email %></p>
+        <% end %>
+        <% if @suppliers.empty? %>
+            <p>Não existem fornecedores cadastrados.</p>
+        <% end %>
+    </div>
+    <div>
+        <%= link_to 'Voltar', root_path %>
+    </div>
+</section>
