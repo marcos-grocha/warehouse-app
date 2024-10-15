@@ -21,13 +21,15 @@
       <h1><%= link_to 'Galpões & Estoque', root_path %></h1>
       <nav>
         <%= link_to 'Fornecedores', suppliers_path %> | 
-        <%= link_to 'Modelos de Produtos', product_models_path %>
+        <%= link_to 'Modelos de Produtos', product_models_path %> | 
+        <%= link_to 'Registrar Pedido', new_order_path %>
         <% if user_signed_in? %>
           <br>
           <%= current_user.email %>
           <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
         <% else %>
-           | <%= link_to 'Entrar', new_user_session_path %>
+          <br>
+          <%= link_to 'Entrar', new_user_session_path %>
         <% end %>
       </nav>
     </header>
