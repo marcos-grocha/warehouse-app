@@ -25,7 +25,7 @@
         <%= link_to 'Registrar Pedido', new_order_path %>
         <% if user_signed_in? %>
           <br>
-          <%= current_user.email %>
+          <%= current_user.description %>
           <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
         <% else %>
           <br>
