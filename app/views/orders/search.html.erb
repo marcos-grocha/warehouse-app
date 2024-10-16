@@ -1,0 +1,10 @@
+<h2>Resultados da Busca por: <%= @order.code %></h2>
+
+<% if @order.present? %>
+    1 pedido encontrado
+    Código: <%= @order.code %>
+    <%= Order.human_attribute_name(:warehouse_id)%>: <%= @order.warehouse.full_description %>
+    <%= Order.human_attribute_name(:supplier_id)%>: <%= @order.supplier.brand_name %>
+<% else %>
+    nenhum pedido encontrado
+<% end %>

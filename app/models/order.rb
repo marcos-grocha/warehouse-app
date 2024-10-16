@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   belongs_to :supplier
   belongs_to :user
 
-  validates :code, presence: true
+  validates :code, :estimated_delivery_date, presence: true
 
   before_validation :generate_code
 

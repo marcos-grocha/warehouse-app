@@ -18,9 +18,16 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to @order, notice: "Pedido registrado com sucesso."
     else
+      @warehouses = Warehouse.all
+      @suppliers = Supplier.all
       flash.now[:notice] = "NEGADOOO"
       render :new
     end
+  end
+
+  def search
+    # @code = params[:query]
+    @order = Order.find_by(code: params[:query])
   end
 
   private

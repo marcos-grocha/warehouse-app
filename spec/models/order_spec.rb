@@ -22,6 +22,21 @@ RSpec.describe Order, type: :model do
 
       expect(result).to be true
     end
+
+    it 'data estimada de entrega deve ser obrigatória' do
+      o = Order.new(estimated_delivery_date: '')
+
+      o.valid?
+
+      expect(o.errors.include? :estimated_delivery_date).to be true
+    end
+
+    it 'data estimada de entrega não deve ser passada' do
+      # se eu fizer vai quebrar vários testes que botei data antiga
+      o = Order.new(estimated_delivery_date: '')
+      o.valid?
+      expect(o.errors.include? :estimated_delivery_date).to be true
+    end
   end
 
   describe 'gera um código único e aleatório' do
