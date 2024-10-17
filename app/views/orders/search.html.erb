@@ -1,10 +1,7 @@
-<h2>Resultados da Busca por: <%= @order.code %></h2>
-
-<% if @order.present? %>
-    1 pedido encontrado
-    Código: <%= @order.code %>
-    <%= Order.human_attribute_name(:warehouse_id)%>: <%= @order.warehouse.full_description %>
-    <%= Order.human_attribute_name(:supplier_id)%>: <%= @order.supplier.brand_name %>
-<% else %>
-    nenhum pedido encontrado
+<h2>Resultados da Busca por: <%= @code %></h2>
+<%= @orders.count %> <%= Order.model_name.human(count: @orders.count).downcase %> <%= t(:found, count: @orders.count)%>
+<% @orders.each do |order| %>
+    Código: <%= order.code %>
+    <%= Order.human_attribute_name(:warehouse_id)%>: <%= order.warehouse.full_description %>
+    <%= Order.human_attribute_name(:supplier_id)%>: <%= order.supplier.brand_name %>
 <% end %>

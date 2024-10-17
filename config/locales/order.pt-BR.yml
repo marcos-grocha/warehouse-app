@@ -1,7 +1,12 @@
 pt-BR:
+  found:
+    one: encontrado
+    other: encontrados
   activerecord:
     models:
-      order: Pedido
+      order: 
+        one: Pedido
+        other: Pedidos
     attributes:
       order:
         warehouse: Galpão Destino
