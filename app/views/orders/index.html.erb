@@ -1,9 +1,11 @@
-<h3>Meus Pedidos</h3>
-
-<% @orders.each do |order| %>
-    <%= Order.human_attribute_name(:code)%> <%= link_to order.code, order %> <br>
-    <%= Order.human_attribute_name(:warehouse_id)%>: <%= order.warehouse.full_description %> <br>
-    <%= Order.human_attribute_name(:supplier_id)%>: <%= order.supplier.corporate_name %> <br>
-    <%= Order.human_attribute_name(:user_id)%> responsável: <%= order.user.description %> <br>
-    <%= Order.human_attribute_name(:estimated_delivery_date)%>: <%= I18n.localize order.estimated_delivery_date %>
-<% end %>
+<br>
+<section>
+    <h3>Meus Pedidos</h3>
+    <% @orders.each do |order| %>
+        <%= Order.human_attribute_name(:code)%> <%= link_to order.code, order %> <br>
+        <%= Order.human_attribute_name(:warehouse_id)%>: <%= order.warehouse.full_description %> <br>
+        <%= Order.human_attribute_name(:supplier_id)%>: <%= order.supplier.corporate_name %> <br>
+        <%= Order.human_attribute_name(:user_id)%> responsável: <%= order.user.description %> <br>
+        <%= Order.human_attribute_name(:estimated_delivery_date)%>: <%= I18n.localize order.estimated_delivery_date %>
+    <% end %>
+</section>
