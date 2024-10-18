@@ -1,4 +1,5 @@
-<section class="medium">
+<br>
+<section>
     <% if(@warehouse.errors.any?) %>
         <h4>Verifique os erros abaixo:</h4>
         <h5>
@@ -7,7 +8,7 @@
             <% end %>
         </h5>
     <% end %>
-    <h1>Novo Galpão</h1>
+    <h3>Novo Galpão</h3>
     <%= render 'form' %>
     <div>
         <%= link_to('Voltar', root_path)%>

@@ -1,7 +1,10 @@
-<h2>Resultados da Busca por: <%= @code %></h2>
-<%= @orders.count %> <%= Order.model_name.human(count: @orders.count).downcase %> <%= t(:found, count: @orders.count)%>
-<% @orders.each do |order| %>
-    Código: <%= order.code %>
-    <%= Order.human_attribute_name(:warehouse_id)%>: <%= order.warehouse.full_description %>
-    <%= Order.human_attribute_name(:supplier_id)%>: <%= order.supplier.brand_name %>
-<% end %>
+<br>
+<section>
+    <h3>Resultados da Busca por: <%= @code %></h3>
+    <%= @orders.count %> <%= Order.model_name.human(count: @orders.count).downcase %> <%= t(:found, count: @orders.count)%>
+    <% @orders.each do |order| %>
+        Código: <%= order.code %>
+        <%= Order.human_attribute_name(:warehouse_id)%>: <%= order.warehouse.full_description %>
+        <%= Order.human_attribute_name(:supplier_id)%>: <%= order.supplier.brand_name %>
+    <% end %>
+</section>

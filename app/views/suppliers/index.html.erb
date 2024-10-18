@@ -1,10 +1,10 @@
 <br>
-<section class="hight">
+<section>
     <%= link_to 'Cadastrar fornecedor', new_supplier_path %>
     <br>
     <div>
         <% @suppliers.each do |s| %>
-            <h4><%= s.corporate_name %></h4>
+            <h3><%= s.corporate_name %></h3>
             <p><%= link_to s.brand_name, supplier_path(s) %></p>
             <p><%= s.registration_number %></p>
             <p><%= s.full_address %></p>

@@ -4,13 +4,9 @@
     <% if @product_models.any? %>
         <% @product_models.each do |pm| %>
             <div>
-                <h2><%= link_to pm.name, pm %></h2>
-                <dl>
-                    <dt>SKU: </dt>
-                    <dd><%= pm.sku %></dd>
-                    <dt>Fornecedor: </dt>
-                    <dd><%= pm.supplier.brand_name %></dd>
-                </dl>
+                <h3><%= link_to pm.name, pm %></h3>
+                <strong>SKU</strong>: <%= pm.sku %> <br>
+                <strong>Fornecedor</strong>: <%= pm.supplier.brand_name %> <br>
             </div>
         <% end %>
     <% else %>

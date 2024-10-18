@@ -8,14 +8,9 @@
     <% @warehouses.each do |w| %>
         <div>
             <h3><%= link_to(w.name, warehouse_path(w.id)) %></h3>
-            <dl>
-                <dt>Código: </dt>
-                <dd><%= w.code %></dd>
-                <dt>Cidade: </dt>
-                <dd><%= w.city %></dd>
-                <dt>Área: </dt>
-                <dd><%= w.area %> m2</dd>
-            </dl>  
+            <strong>Código</strong>: <%= w.code %><br>
+            <strong>Cidade</strong>: <%= w.city %><br>
+            <strong>Área</strong>: <%= w.area %> m2
         </div>
     <% end %>
     
