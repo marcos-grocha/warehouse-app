@@ -1,8 +1,15 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [ :new ]
+  before_action :authenticate_user!
+
+  def index
+    @orders = current_user.orders
+  end
 
   def show
     @order = Order.find(params[:id])
+    if @order.user != current_user
+      redirect_to root_path, alert: "Você não possui acesso a este pedido."
+    end
   end
 
   def new

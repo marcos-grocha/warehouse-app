@@ -9,10 +9,7 @@
 
     <%= yield :head %>
 
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="icon" type="image/png" href="<%= image_url('micon.png') %>">
     <%= stylesheet_link_tag "application" %>
   </head>
 
@@ -22,6 +19,7 @@
       <nav>
         <%= link_to 'Fornecedores', suppliers_path %> | 
         <%= link_to 'Modelos de Produtos', product_models_path %> | 
+        <%= link_to 'Meus Pedidos', orders_path %>
         <%= link_to 'Registrar Pedido', new_order_path %>
 
         <% if user_signed_in? %>
