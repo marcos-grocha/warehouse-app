@@ -9,4 +9,5 @@
         <%= Order.human_attribute_name(:user_id)%> responsável: <%= @order.user.description %> <br>
         <%= Order.human_attribute_name(:estimated_delivery_date)%>: <%= I18n.localize @order.estimated_delivery_date %>
     </div>
+    <%= link_to 'Editar', edit_order_path %>
 </section>
