@@ -19,17 +19,20 @@ describe 'Usuário vê seus próprios pedidos' do
     s = Supplier.create!(
       corporate_name: 'Samsung Eletronicos LTDA', brand_name: 'Samsung', registration_number: '07317108000151', full_address: 'Av Nacoes Uniddas, 1000', city: 'São Paulo', state: 'SP', email: 'sac@samsung.com.br'
       )
-    o1 = Order.create!(user: marcos, warehouse: w, supplier: s, estimated_delivery_date: 1.day.from_now)
-    o2 = Order.create!(user: leticia, warehouse: w, supplier: s, estimated_delivery_date: 1.day.from_now)
-    o3 = Order.create!(user: marcos, warehouse: w, supplier: s, estimated_delivery_date: 1.week.from_now)
+    o1 = Order.create!(user: marcos, warehouse: w, supplier: s, estimated_delivery_date: 1.day.from_now, status: 'pending')
+    o2 = Order.create!(user: leticia, warehouse: w, supplier: s, estimated_delivery_date: 1.day.from_now, status: 'delivered')
+    o3 = Order.create!(user: marcos, warehouse: w, supplier: s, estimated_delivery_date: 1.week.from_now, status: 'canceled')
 
     login_as(marcos)
     visit root_path
     click_on 'Meus Pedidos'
 
     expect(page).to have_content o1.code
+    expect(page).to have_content 'Pendente'
     expect(page).not_to have_content o2.code
+    expect(page).not_to have_content 'Entregue'
     expect(page).to have_content o3.code
+    expect(page).to have_content 'Cancelado'
   end
 
   it 'e visita um pedido' do

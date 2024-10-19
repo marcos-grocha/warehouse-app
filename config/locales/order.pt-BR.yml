@@ -1,4 +1,7 @@
 pt-BR:
+  pending: Pendente
+  delivered: Entregue
+  canceled: Cancelado
   found:
     one: encontrado
     other: encontrados
@@ -17,3 +20,4 @@ pt-BR:
         user_id: Usuário
         estimated_delivery_date: Data Prevista de Entrega
         code: Pedido
+        status: Situação do Pedido

@@ -43,6 +43,7 @@ describe 'Usuário cadastra um pedido' do
     expect(page).to have_content 'Fornecedor: Samsung Eletronicos LTDA'
     expect(page).to have_content 'Usuário responsável: Leticia <leticia@unit.com>'
     expect(page).to have_content 'Data Prevista de Entrega: 20/12/2022'
+    expect(page).to have_content 'Situação do Pedido: Pendente'
     expect(page).not_to have_content 'Galpão Maceio'
     expect(page).not_to have_content 'Spark Industries Brasil LTDA'
   end
