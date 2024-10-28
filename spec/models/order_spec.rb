@@ -65,5 +65,22 @@ RSpec.describe Order, type: :model do
       expect(o.code.length).to eq 8
       expect(o.code).not_to eq o2.code
     end
+
+    it 'e não deve ser modificado' do
+      u = User.create!(name: 'Marcos', email: 'marcos@unit.com', password: '123456')
+      w = Warehouse.create!(
+        name: 'Maceio', code: 'MCZ', city: 'Maceio', area: 50_000,
+        address: 'Av Atlantica, 50', cep: '80000-000', description: 'Perto do Aeroporto')
+      s = Supplier.create!(
+        corporate_name: 'Spark Industries Brasil LTDA', brand_name: 'Spark', registration_number: '16074559000104',
+        full_address: 'Torre da Indústria, 1', city: 'Teresina', state: 'PI', email: 'vendas@spark.com.br')
+      o = Order.create!(
+        user: u, warehouse: w, supplier: s, estimated_delivery_date: 1.week.from_now, status: :delivered)
+      original_code = o.code
+
+      o.update!(estimated_delivery_date: 1.month.from_now)
+
+      expect(o.code).to eq(original_code)
+    end
   end
 end
