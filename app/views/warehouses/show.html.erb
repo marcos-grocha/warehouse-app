@@ -14,6 +14,14 @@
         <%= button_to('Remover', warehouse_path(@warehouse.id), method: :delete) %>
     </div>
     <br>
+
+    <div>
+        <h3>Itens em Estoque</h3>
+        <% @stocks.each_pair do |product_model, quantity| %>
+            <%= quantity %> x <%= product_model.sku %>
+        <% end %>
+    </div>
+
     <div>
         <%= link_to('Voltar', root_path)%>
     </div>
