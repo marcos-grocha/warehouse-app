@@ -43,4 +43,41 @@ RSpec.describe StockProduct, type: :model do
       expect(stock_product.serial_number).to eq original_code
     end
   end
+
+  describe '#available?' do
+    it 'true se não tiver destino' do
+      u = User.create!(name: 'Marcos', email: 'marcos@unit.com', password: '123456')
+      w = Warehouse.create!(
+        name: 'Maceio', code: 'MCZ', city: 'Maceio', area: 50_000,
+        address: 'Av Atlantica, 50', cep: '80000-000', description: 'Perto do Aeroporto')
+      s = Supplier.create!(
+        corporate_name: 'Spark Industries Brasil LTDA', brand_name: 'Spark', registration_number: '16074559000104',
+        full_address: 'Torre da Indústria, 1', city: 'Teresina', state: 'PI', email: 'vendas@spark.com.br')
+      o = Order.create!(
+        user: u, warehouse: w, supplier: s, estimated_delivery_date: 1.week.from_now, status: :delivered)
+      p = ProductModel.create!(name: 'Cadeira Gamer', weight: 5, height: 70, width: 75, depth: 80, sku: 'CGMER-XPTO-888', supplier: s)
+
+      stock_product = StockProduct.create!(order: o, warehouse: w, product_model: p)
+
+      expect(stock_product.available?).to eq true
+    end
+
+    it 'false se tiver destino' do
+      u = User.create!(name: 'Marcos', email: 'marcos@unit.com', password: '123456')
+      w = Warehouse.create!(
+        name: 'Maceio', code: 'MCZ', city: 'Maceio', area: 50_000,
+        address: 'Av Atlantica, 50', cep: '80000-000', description: 'Perto do Aeroporto')
+      s = Supplier.create!(
+        corporate_name: 'Spark Industries Brasil LTDA', brand_name: 'Spark', registration_number: '16074559000104',
+        full_address: 'Torre da Indústria, 1', city: 'Teresina', state: 'PI', email: 'vendas@spark.com.br')
+      o = Order.create!(
+        user: u, warehouse: w, supplier: s, estimated_delivery_date: 1.week.from_now, status: :delivered)
+      p = ProductModel.create!(name: 'Cadeira Gamer', weight: 5, height: 70, width: 75, depth: 80, sku: 'CGMER-XPTO-888', supplier: s)
+
+      stock_product = StockProduct.create!(order: o, warehouse: w, product_model: p)
+      stock_product.create_stock_product_destination!(recipient: "Joao", address: "Rua do Joao")
+
+      expect(stock_product.available?).to eq false
+    end
+  end
 end
