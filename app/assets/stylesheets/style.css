@@ -1,16 +1,15 @@
 header {
     color: white;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.65);
     margin: auto;
 }
 
 h1 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: xx-large;
-    background-color: rgba(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.65);
     border-radius: 40px;
     width: 400px;
+    height: 55px;
     margin: auto;
 }
 
@@ -20,8 +19,21 @@ body {
     background-color: rgba(150, 150, 150, 0.65);
     background-image: url('wallpaper.webp');
     background-position: center center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: cover;
+}
+
+.warehouse-list {
+    margin: 20px 0;
+}
+.warehouse {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.warehouse:hover {
+    background-color: #f9f9f9;
 }
 
 section {

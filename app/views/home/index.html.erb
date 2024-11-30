@@ -5,14 +5,16 @@
         <%= link_to('Cadastrar Galpão', new_warehouse_path) %>
     </div>
     
-    <% @warehouses.each do |w| %>
-        <div>
-            <h3><%= link_to(w.name, warehouse_path(w.id)) %></h3>
-            <strong>Código</strong>: <%= w.code %><br>
-            <strong>Cidade</strong>: <%= w.city %><br>
-            <strong>Área</strong>: <%= w.area %> m2
-        </div>
-    <% end %>
+    <div class="warehouse-list">
+        <% @warehouses.each do |w| %>
+            <div class="warehouse">
+                <h3><%= link_to w.name, warehouse_path(w.id), class: 'btn btn-secondary' %></h3>
+                <strong>Código</strong>: <%= w.code %><br>
+                <strong>Cidade</strong>: <%= w.city %><br>
+                <strong>Área</strong>: <%= w.area %> m2
+            </div>
+        <% end %>
+    </div>
     
     <% if @warehouses.empty? %>
         <p>Não existem galpões cadastrados!</p>
