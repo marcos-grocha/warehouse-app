@@ -17,9 +17,9 @@ class WarehousesController < ApplicationController
     # 3 -- Salvar o galpão que foi criado
     if @warehouse.save()
       # 4 -- Redirecionar para a tela inicial
-      redirect_to root_path, notice: "Galpão cadastrado com sucesso!"
+      redirect_to root_path, notice: t(".sucesso")
     else
-      flash.now[:notice] = "Galpão não cadastrado."
+      flash.now[:notice] = t(".falha")
       render "new"
     end
   end

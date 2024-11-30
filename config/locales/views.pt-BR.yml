@@ -1,0 +1,9 @@
+pt-BR:
+  warehouses:
+    index:
+      title: 'Galpões'
+    new:
+      title: 'Novo Galpão'
+    create:
+      sucesso: 'Galpão cadastrado com sucesso!'
+      falha: 'Galpão não cadastrado.'
