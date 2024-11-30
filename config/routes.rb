@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # Defines my roots
 
   root to: "home#index"
+  devise_for :users
+
   resources :warehouses, only: [ :show, :new, :create, :edit, :update, :destroy ] do
     resources :stock_product_destinations, only: [ :create ]
   end
@@ -21,5 +23,9 @@ Rails.application.routes.draw do
     post "canceled", on: :member
   end
 
-  devise_for :users
+  namespace :api do
+    namespace :v1 do
+      resources :warehouses, only: [ :show, :index, :create ]
+    end
+  end
 end
