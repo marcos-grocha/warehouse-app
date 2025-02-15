@@ -6,7 +6,7 @@
 
 ## Principais Funcionalidades
 
-- **Consultar Galpões**
+- **Gerenciar Galpões**
 
 ---
 
@@ -63,7 +63,14 @@ rails server
 rspec
 ```
 
+## APIs
+-  post "/api/v1/warehouses" Para cadastrar novo galpão
+-  get "/api/v1/warehouses/" Para listar galpões cadastrados
+-  get "/api/v1/warehouses/#{warehouse.id}" Para detalhes de um galpão
 ---
 
 ## Autor
 Desenvolvido por [Marcos Guimarães Rocha](https://www.linkedin.com/in/marcos-grocha/).
+
+![image](https://github.com/user-attachments/assets/852db1df-15c9-4fd5-8329-ab09a15e6239)
+
