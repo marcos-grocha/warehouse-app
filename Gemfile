@@ -10,6 +10,7 @@ gem "sqlite3", ">= 1.4"
 gem "puma", ">= 5.0"
 
 gem "devise"
+gem "rack-cors"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
